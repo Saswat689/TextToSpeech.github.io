@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Text To Speech Convertor </title>
+</head>
+
+<style type="text/css">
+	#wrapper{
+		width: 40%;
+		height: 230px;
+		margin: 100px auto;
+		text-align: center;
+	}
+	#txt{
+		width: 60%;
+		height: 20px;
+		padding: 10px;
+		margin-top: 5px;
+		border-radius: 10px;
+		border: 1px solid blue;
+	}
+	#button{
+		width: 23%;
+		height: 37px;
+		padding: 6px;
+		font-family: 'Helvetica',sans-serif;
+		margin-top: 20px;
+		border-radius: 20px;
+		border: none;
+		background-color: #4286f4;
+		color: #fff;
+		cursor: pointer;
+	}
+	#button:hover{
+		background-color: #c471ed;
+	}
+</style>
+
+<body>
+
+<div id="wrapper">
+<h2 style="font-family: 'Helvetica',sans-serif; font-size: 35px;">Text to speech convertor</h2>
+<input type="text" id="txt" name="text" placeholder="Write your text and press Speak"><br>
+<input type="button" onclick="textSpeak()" value="Speak" id="button">
+</div>
+
+<script type="text/javascript">
+	const textSpeak = () => {
+	const msg = document.getElementById('txt').value;
+	let speech = new window.SpeechSynthesisUtterance();
+	speech.lang = 'en-US';
+	speech.text = msg;
+	speech.pitch = 1;
+	speech.rate = 1;
+	speech.volume = 1;
+	window.speechSynthesis.speak(speech);
+	}
+
+</script>
+</body>
+</html>
